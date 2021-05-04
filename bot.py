@@ -15,7 +15,8 @@ def findat(msg):
 @bot.message_handler(commands=['start']) # welcome message handler
 def send_welcome(message):
     bot.send_message(message.chat.id, "欢迎来到Leyao的Rogers/Fido自动机器人！\n"
-    +"Welcome to Leyao's Rogers/Fido BOT!")
+    +"Welcome to Leyao's Rogers/Fido BOT!\n"
+    +"我们的[官网](https://www.planetem.com)", parse_mode='Markdown')
 
 @bot.message_handler(commands=['help']) # help message handler
 def send_welcome(message):
@@ -25,12 +26,12 @@ def send_welcome(message):
     +'Use the following command to learn the package\n'
     +'/fido_wireless\n/fido_home_internet\n/rogers_wireless\n'
     +'/rogers_home_internet\n/virgin_home_internet\n/bell_home_internet\n'
-    +'/ctexcel\n/cmlink')
+    +'/ctexcel\n/cmlink', parse_mode='Markdown')
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_welcome(message):
     bot.send_message(message.chat.id, '这里是FIDO的手机套餐。\n'
-    +'Here is the fido wireless plan')
+    +'Here is the fido wireless plan', parse_mode='Markdown')
 
 
 # @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
