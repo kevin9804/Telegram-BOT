@@ -14,23 +14,36 @@ def findat(msg):
 
 @bot.message_handler(commands=['start']) # welcome message handler
 def send_welcome(message):
-    bot.send_message(message.chat.id, "欢迎来到Leyao的Rogers/Fido自动机器人！\nWelcome to Leyao's Rogers/Fido BOT!")
+    bot.send_message(message.chat.id, "欢迎来到Leyao的Rogers/Fido自动机器人！\n"
+    +"Welcome to Leyao's Rogers/Fido BOT!")
 
 @bot.message_handler(commands=['help']) # help message handler
 def send_welcome(message):
-    bot.send_message(message.chat.id, '这个机器人将帮助客户选择需要的套餐和下单。\nThis BOT will help our customer to find the best plan for them and place the order.')
+    bot.send_message(message.chat.id, '这个机器人将帮助客户选择需要的套餐和下单。\n'
+    +'This BOT will help our customer to find the best plan for them and place the order.\n'
+    +'使用以下命令选择您想了解的套餐\n'
+    +'Use the following command to learn the package\n'
+    +'/fido_wireless\n/fido_home_internet\n/rogers_wireless\n'
+    +'/rogers_home_internet\n/virgin_home_internet\n/bell_home_internet\n'
+    +'/ctexcel\n/cmlink')
 
-@bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
+@bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
+def send_welcome(message):
+    bot.send_message(message.chat.id, '这里是FIDO的手机套餐。\n'
+    +'Here is the fido wireless plan')
+
+
+# @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
 # lambda function finds messages with the '@' sign in them
 # in case msg.text doesn't exist, the handler doesn't process it
-def at_converter(message):
-    texts = message.text.split()
-    at_text = findat(texts)
-    if at_text == '@': # in case it's just the '@', skip
-        pass
-    else:
-        insta_link = "https://instagram.com/{}".format(at_text[1:])
-        bot.send_message(message.chat.id, insta_link)
+# def at_converter(message):
+#    texts = message.text.split()
+#    at_text = findat(texts)
+#    if at_text == '@': # in case it's just the '@', skip
+#        pass
+#    else:
+#        insta_link = "https://instagram.com/{}".format(at_text[1:])
+#        bot.send_message(message.chat.id, insta_link)
 
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
