@@ -27,7 +27,7 @@ def send_welcome(message):
     +'Use the following command to learn the package\n'
     +'/fido_wireless\n/fido_home_internet\n/rogers_wireless\n'
     +'/rogers_home_internet\n/virgin_home_internet\n/bell_home_internet\n'
-    +'/ctexcel\n/cmlink', parse_mode='Markdown')
+    +'/ctexcel\n/cmlink')
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_welcome(message):
