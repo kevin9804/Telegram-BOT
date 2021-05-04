@@ -42,18 +42,10 @@ def send_welcome(message):
     bot.send_message(message.chat.id, '这里是FIDO的手机套餐。\n'
     +'Here is the fido wireless plan', parse_mode='Markdown')
 
-
-# @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
-# lambda function finds messages with the '@' sign in them
-# in case msg.text doesn't exist, the handler doesn't process it
-# def at_converter(message):
-#    texts = message.text.split()
-#    at_text = findat(texts)
-#    if at_text == '@': # in case it's just the '@', skip
-#        pass
-#    else:
-#        insta_link = "https://instagram.com/{}".format(at_text[1:])
-#        bot.send_message(message.chat.id, insta_link)
+# Handle all undefined messages.
+@bot.message_handler(regexp="SOME_REGEXP")
+def default_command(message):
+    bot.send_message(message.chat.id, "我还在学习中，暂时不知道如何回复您哦！\nHi, I am still learning how to reply this message at this moment.")
 
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
