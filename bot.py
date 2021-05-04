@@ -21,7 +21,7 @@ def send_welcome(message):
     +"Please use /help command to learn more about how to use this BOT", disable_web_page_preview=True, parse_mode='Markdown')
 
 @bot.message_handler(commands=['help']) # help message handler
-def send_welcome(message):
+def send_help(message):
     markup = types.InlineKeyboardMarkup(row_width=2)
     itembtn1 = types.InlineKeyboardButton('FIDO', url='www.fido.ca')
     itembtn2 = types.InlineKeyboardButton('ROGERS', url='www.rogers.com')
@@ -38,8 +38,8 @@ def send_welcome(message):
     +'/ctexcel\n/cmlink', reply_markup=markup)
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
-def send_welcome(message):
-    photo = open('/info/fido/wireless/ON rate.jpg')
+def send_fido(message):
+    photo = open('/info/fido/wireless/ON rate.jpg','rb')
     bot.send_photo(message.chat.id, photo)
     bot.send_message(message.chat.id, 'Here is the price plan for Ontario Numbers')
 
