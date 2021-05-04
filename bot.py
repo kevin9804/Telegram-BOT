@@ -39,7 +39,7 @@ def send_help(message):
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_fido(message):
-    photo = open('/info/fido/wireless/ON rate.jpg','rb')
+    photo = open('/info/fido/wireless/ON_rate.jpg','rb')
     bot.send_photo(message.chat.id, photo)
     bot.send_message(message.chat.id, 'Here is the price plan for Ontario Numbers')
 
