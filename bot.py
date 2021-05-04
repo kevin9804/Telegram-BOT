@@ -48,18 +48,21 @@ def send_fido(message):
 
 @bot.message_handler(func=lambda msg: 'Ottawa' in msg.text and 'Ontario' not in msg.text)
 def send_fido_wireless_ottawa(message):
+    markup = types.ReplyKeyboardRemove()
     photo = open('info/fido/wireless/OTT_rate.jpg','rb')
-    bot.send_photo(message.chat.id, photo, caption='此图为渥太华地区号码专享优惠\nHere is the price plan for Ottawa Numbers')
+    bot.send_photo(message.chat.id, photo, caption='此图为渥太华地区号码专享优惠\nHere is the price plan for Ottawa Numbers', reply_markup=markup)
 
 @bot.message_handler(func=lambda msg: 'Ontario' in msg.text)
 def send_fido_wireless_ottawa(message):
+    markup = types.ReplyKeyboardRemove()
     photo = open('info/fido/wireless/ON_rate.jpg','rb')
-    bot.send_photo(message.chat.id, photo, caption='此图为安省常规号码优惠\nHere is the price plan for Ontario Numbers')
+    bot.send_photo(message.chat.id, photo, caption='此图为安省常规号码优惠\nHere is the price plan for Ontario Numbers', reply_markup=markup)
 
 @bot.message_handler(func=lambda msg: 'Quebec' in msg.text)
 def send_fido_wireless_ottawa(message):
+    markup = types.ReplyKeyboardRemove()
     photo = open('info/fido/wireless/QC_rate.jpg','rb')
-    bot.send_photo(message.chat.id, photo, caption='此图为魁北克省地区优惠\nHere is the price plan for Quebec Numbers')
+    bot.send_photo(message.chat.id, photo, caption='此图为魁北克省地区优惠\nHere is the price plan for Quebec Numbers', reply_markup=markup)
 
 @bot.message_handler(commands=['fido_home_internet']) # fido wireless message handler
 def send_fido(message):
