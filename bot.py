@@ -39,10 +39,10 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_welcome(message):
-    bot.send_message(message.chat.id, '这里是FIDO的手机套餐。\n'
-    +'Here is the fido wireless plan', parse_mode='Markdown')
+    photo = open('/info/fido/wireless/ON rate.jpg')
+    bot.send_photo(message.chat.id, photo, caption='test')
 
-# Handle all undefined messages.
+# Handle all undefined messages
 @bot.message_handler(content_types=['text'])
 def default_command(message):
     bot.send_message(message.chat.id, "我还在学习中，暂时不知道如何回复您哦！\nHi, I am still learning how to reply this message at this moment.")
