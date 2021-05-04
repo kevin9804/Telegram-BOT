@@ -16,7 +16,7 @@ def findat(msg):
 def send_welcome(message):
     bot.send_message(message.chat.id, "欢迎来到Leyao的Rogers/Fido自动机器人！\n"
     +"Welcome to Leyao's Rogers/Fido BOT!\n"
-    +"我们的[官网](https://www.planetem.com)", parse_mode='Markdown')
+    +"我们的[官网](https://www.planetem.com)", disable_web_page_preview=True, parse_mode='Markdown')
 
 @bot.message_handler(commands=['help']) # help message handler
 def send_welcome(message):
