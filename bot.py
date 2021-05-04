@@ -46,7 +46,7 @@ def send_fido(message):
     markup.add(btn1, btn2, btn3)
     bot.send_message(message.char.id, 'Please select the area of your number area code:', reply_markup=markup)
 
-@bot.message_handler(func=lambda message: message.text=='Ottawa')
+@bot.message_handler(func=lambda message: message.text is not None and 'Ottawa' in message.text)
     photo = open('info/fido/wireless/OTT_rate.jpg','rb')
     bot.send_photo(message.chat.id, photo, caption='Here is the price plan for Ottawa Numbers')
 
