@@ -39,14 +39,14 @@ def send_help(message):
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_fido(message):
-    markup = types.ReplyKeyboardMarkup(row_width=3)
-    btn1 = types.KeyboardButton('Ottawa')
-    btn2 = types.KeyboardButton('National (non Ottawa/Quebec)')
-    btn3 = types.KeyboardButton('Quebec')
+    markup = types.InlineKeyboardMarkup(row_width=3)
+    btn1 = types.InlineKeyboardButton('Ottawa', callback_data='OTT')
+    btn2 = types.InlineKeyboardButton('National (non Ottawa/Quebec)', callback_data='ON')
+    btn3 = types.InlineKeyboardButton('Quebec', callback_data='QC')
     markup.add(btn1, btn2, btn3)
     bot.send_message(message.chat.id, 'Please select the area of your number area code:', reply_markup=markup)
 
-@bot.message_handler(func=lambda msg: msg.text is not None and 'Ottawa' in msg.text)
+@bot.message_handler(func=lambda msg: msg.text == 'OTT')
 def send_fido_wireless_ottawa(message):
     photo = open('info/fido/wireless/OTT_rate.jpg','rb')
     bot.send_photo(message.chat.id, photo, caption='Here is the price plan for Ottawa Numbers')
