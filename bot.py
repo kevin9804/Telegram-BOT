@@ -14,11 +14,11 @@ def findat(msg):
 
 @bot.message_handler(commands=['start']) # welcome message handler
 def send_welcome(message):
-    bot.send_message(message.chat_id, "欢迎来到Leyao的Rogers/Fido自动机器人！\nWelcome to Leyao's Rogers/Fido BOT!")
+    bot.send_message(message.chat.id, "欢迎来到Leyao的Rogers/Fido自动机器人！\nWelcome to Leyao's Rogers/Fido BOT!")
 
 @bot.message_handler(commands=['help']) # help message handler
 def send_welcome(message):
-    bot.send_message(message.chat_id, '这个机器人将帮助客户选择需要的套餐和下单。\nThis BOT will help our customer to find the best plan for them and place the order.')
+    bot.send_message(message.chat.id, '这个机器人将帮助客户选择需要的套餐和下单。\nThis BOT will help our customer to find the best plan for them and place the order.')
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
 # lambda function finds messages with the '@' sign in them
@@ -30,7 +30,7 @@ def at_converter(message):
         pass
     else:
         insta_link = "https://instagram.com/{}".format(at_text[1:])
-        bot.send_message(message.chat_id, insta_link)
+        bot.send_message(message.chat.id, insta_link)
 
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
