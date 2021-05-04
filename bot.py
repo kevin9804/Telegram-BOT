@@ -40,7 +40,8 @@ def send_welcome(message):
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_welcome(message):
     photo = open('/info/fido/wireless/ON rate.jpg')
-    bot.send_photo(message.chat.id, photo, caption='test')
+    bot.send_photo(message.chat.id, photo)
+    bot.send_message(message.chat.id, 'Here is the price plan for Ontario Numbers')
 
 # Handle all undefined messages
 @bot.message_handler(content_types=['text'])
