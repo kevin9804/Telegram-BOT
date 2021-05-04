@@ -25,7 +25,10 @@ def send_welcome(message):
     markup = types.InlineKeyboardMarkup(row_width=2)
     itembtn1 = types.InlineKeyboardButton('FIDO', url='www.fido.ca')
     itembtn2 = types.InlineKeyboardButton('ROGERS', url='www.rogers.com')
+    itembtn3 = types.InlineKeyboardButton('CTEXCEL', url='www.ctexcel.ca')
+    itembtn4 = types.InlineKeyboardButton('CMLINK', url='http://cmlink.com/ca/zh')
     markup.row(itembtn1, itembtn2)
+    markup.row(itembtn3, itembtn4)
     bot.send_message(message.chat.id, '这个机器人将帮助客户选择需要的套餐和下单。\n'
     +'This BOT will help our customer to find the best plan for them and place the order.\n'
     +'使用以下命令选择您想了解的套餐\n'
