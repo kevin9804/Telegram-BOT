@@ -1,5 +1,6 @@
 import telebot
 from flask import Flask, request
+from telebot import types
 import os
 
 TOKEN = "1799537586:AAHHctNYx3h8m4-1ezE0NtrFyskczL91irs"
@@ -21,13 +22,17 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['help']) # help message handler
 def send_welcome(message):
+    markup = types.ReplyKeyboardMarkup(row_width=2)
+    itembtn1 = types.InlineKeyboardButton('FIDO', url='www.fido.ca')
+    itembtn2 = types.InlineKeyboardButton('ROGERS', url='www.rogers.com')
+    markup.row(itembtn1, itembtn2)
     bot.send_message(message.chat.id, '这个机器人将帮助客户选择需要的套餐和下单。\n'
     +'This BOT will help our customer to find the best plan for them and place the order.\n'
     +'使用以下命令选择您想了解的套餐\n'
     +'Use the following command to learn the package\n'
     +'/fido_wireless\n/fido_home_internet\n/rogers_wireless\n'
     +'/rogers_home_internet\n/virgin_home_internet\n/bell_home_internet\n'
-    +'/ctexcel\n/cmlink')
+    +'/ctexcel\n/cmlink', reply_markup=markup)
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_welcome(message):
