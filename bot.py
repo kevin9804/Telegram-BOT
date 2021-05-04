@@ -43,7 +43,7 @@ def send_welcome(message):
     +'Here is the fido wireless plan', parse_mode='Markdown')
 
 # Handle all undefined messages.
-@bot.message_handler(regexp="SOME_REGEXP")
+@bot.message_handler(content_types=['text'])
 def default_command(message):
     bot.send_message(message.chat.id, "我还在学习中，暂时不知道如何回复您哦！\nHi, I am still learning how to reply this message at this moment.")
 
