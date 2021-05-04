@@ -39,14 +39,14 @@ def send_help(message):
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_fido(message):
-    markup = types.ReplyKeyboardMarkup(row_width=3)
+    markup = types.ReplyKeyboardMarkup(row_width=1)
     btn1 = types.KeyboardButton('渥太华Ottawa')
     btn2 = types.KeyboardButton('安大略省（非渥太华地区）\nOntario (non Ottawa)')
     btn3 = types.KeyboardButton('魁北克省\nQuebec')
     markup.add(btn1, btn2, btn3)
     bot.send_message(message.chat.id, '请选择您手机号码归属地：\nPlease select the area of your number area code:', reply_markup=markup)
 
-@bot.message_handler(func=lambda msg: 'Ottawa' in msg.text)
+@bot.message_handler(func=lambda msg: 'Ottawa' in msg.text and 'Ontario' not in msg.text)
 def send_fido_wireless_ottawa(message):
     photo = open('info/fido/wireless/OTT_rate.jpg','rb')
     bot.send_photo(message.chat.id, photo, caption='此图为渥太华地区号码专享优惠\nHere is the price plan for Ottawa Numbers')
