@@ -22,7 +22,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['help']) # help message handler
 def send_welcome(message):
-    markup = types.ReplyKeyboardMarkup(row_width=2)
+    markup = types.InlineKeyboardMarkup(row_width=2)
     itembtn1 = types.InlineKeyboardButton('FIDO', url='www.fido.ca')
     itembtn2 = types.InlineKeyboardButton('ROGERS', url='www.rogers.com')
     markup.row(itembtn1, itembtn2)
