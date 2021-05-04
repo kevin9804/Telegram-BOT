@@ -39,12 +39,12 @@ def send_help(message):
 
 @bot.message_handler(commands=['fido_wireless']) # fido wireless message handler
 def send_fido(message):
-    markup = types.ReplyKeyboardMarkup(row_width=1)
+    markup = types.ReplyKeyboardMarkup(row_width=3)
     btn1 = types.KeyboardButton('Ottawa')
     btn2 = types.KeyboardButton('National (non Ottawa/Quebec)')
     btn3 = types.KeyboardButton('Quebec')
     markup.add(btn1, btn2, btn3)
-    bot.send_message(message.char.id, 'Please select the area of your number area code:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Please select the area of your number area code:', reply_markup=markup)
 
 @bot.message_handler(func=lambda msg: msg.text is not None and 'Ottawa' in msg.text)
 def send_fido_wireless_ottawa(message):
